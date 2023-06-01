@@ -1,0 +1,31 @@
+.day:hover {
+  background-color: #b7bdff;
+}
+.day-name {
+  font-size: 12px;
+}
+.round-item {
+    height: 200px;
+    padding: 10px;
+    
+}
+.round-item-row {
+  /* width: 250px; */
+  border: 1px solid #ff0000;
+}
+
+@media (max-width: 768px) {
+  .day-name {
+    font-size: 12px;
+  }
+  .round-item {
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    
+}
+.round-item-row {
+  /* width: 250px; */
+  border: 1px solid #ff0000;
+}
+}
