@@ -9,7 +9,7 @@ export const DayItem = () => {
   console.log(hours[0]);
 
   return (
-    <div className="animate__animated animate__fadeIn">
+    <div className="animate__animated animate__bounceInLeft">
       <table className="table table-striped">
         <thead>
           <tr>
