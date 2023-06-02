@@ -26,12 +26,13 @@ export const router = createBrowserRouter(
                 },
                 {
                     path:'profile',
-                    element: <Profile />
+                    element: <Profile />,
+                    errorElement: <ErrorPage />,
                 }
              ]
         }
     ],
     {
-        basename: 'horario'
+        basename: '/Horario'
     }
-)
+);
