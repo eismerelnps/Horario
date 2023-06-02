@@ -1,40 +1,36 @@
-import React from 'react';
+import React from "react";
 
-import '../body/body.css';
+import "../body/body.css";
+import hours from "../../data/hours";
 
-export const DayItem = ({ day, timeslots }) => {
+export const DayItem = () => {
+  const hour = hours;
+  //const { timeslots } = hour;
+  console.log(hours[0]);
+
   return (
-    <div className="day-item-container bg-primary">
-      <div className="day">
-        <h3 className="day-name text-center p-4">{day}</h3>
-        <div className="table-responsive">
-          <table className="table">
-            <thead>
-              <tr>
-                {/* <th>Hora</th>
-                <th>Clase</th>
-                <th>Aula</th>
-                <th>Tipo</th>
-                <th>Profesor</th> */}
-              </tr>
-            </thead>
-            </table>
-            <div className=''>
-              {timeslots.map((timeslot) => (
-                <div className="round-item-row row text-center" key={timeslot.time}>
-                  {/* <div>{timeslot.time}</div> */}
-                  <div className='round-item col-12 col-lg-3'><h3>{timeslot.classAbr}</h3></div>
-                  <div className='round-item col-12 col-lg-3'>{timeslot.classType}</div>
-                  <div className='round-item col-12 col-lg-3'><h6>{timeslot.classRoom}</h6></div>
-                  <div className='round-item col-12 col-lg-3'><i className="fa-sharp fa-solid fa-circle-info"></i></div>
-        
-                </div>
-                
+    <div className="animate__animated animate__fadeIn">
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">.</th>
+            {hour.map(({ day }) => (
+              <th scope="col">{day}</th>
+            ))}
+          </tr>
+        </thead>
+
+        <tbody>
+          {hour.map(({ timeslots }, i) => (
+            <tr>
+              <th scope="row">{i + 1}</th>
+              {hour.map((timeslots) => (
+                <td>{timeslots.timeslots[i].classAbr}</td>
               ))}
-            </div>
-          
-        </div>
-      </div>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

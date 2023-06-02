@@ -1,21 +1,17 @@
 import React from "react";
 import "./body.css";
 import { DayItem } from "../items/DayItem";
+import hours from "../../data/hours";
 
-export const Body = ({ hours }) => {
+export const Body = () => {
+  const hour = hours;
+  //* <div className="col bg-danger" key={day.day}>   </div>
+
   return (
-    <div className="bg-dark">
-      <h2 className="text-primary text-center">Facultad: FTE</h2>
-      <h6 className="text-primary text-center"> Grupo: 203</h6>
-      <div className="row bg-warning">
-
-        {hours.map((day) => (
-          <div className="col bg-danger" key={day.day}>
-            <DayItem day={day.day} timeslots={day.timeslots} />
-          </div>
-        ))}
-
-      </div>
+  
+    <div className="container-xxl-fluid animate__animated animate__fadeIn">
+      <DayItem />
     </div>
+
   );
 };

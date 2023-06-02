@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
     const navigate = useNavigate();
@@ -9,7 +9,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav className='navbar navbar-expand-sm navbar-light bg-dark  fixed-top'>
       {/* <Link className="navbar-brand" to="/">
         Asociaciones
       </Link> */}
@@ -31,11 +31,11 @@ export const Navbar = () => {
             className="nav-item nav-link"
             to="/profile"
           >
-           <span className="nav-item nav-link text-info">Eismer</span>
+           <span className="nav-item nav-link text-">Eismer</span>
 
           </NavLink>
           
-          <button className="nav-item nav-link btn" onClick={handleLogout}>
+          <button className="nav-item nav-link btn text-danger" onClick={handleLogout}>
             Logout
           </button>
         </ul>
