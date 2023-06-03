@@ -33,7 +33,6 @@ const hours = [
         className: "",
         teacher: "",
       },
-
       {
         time: "4",
 

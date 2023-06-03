@@ -24,7 +24,9 @@ export const OffcanvasNavBar = () => {
         </button>
 
         
-        <span className="navbar-brand text-light" href="#">
+        <span 
+        className="navbar-brand text-light" 
+        href="#">
           Horario
         </span>
 
@@ -55,7 +57,10 @@ export const OffcanvasNavBar = () => {
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li className="nav-item">
-                <NavLink className="nav-link text-center" to="/hours">
+                <NavLink 
+                className="nav-link text-center"  to="/hours"
+                aria-label="Toggle navigation"
+               >
                   Horario
                 </NavLink>
                 <hr/>
@@ -63,7 +68,11 @@ export const OffcanvasNavBar = () => {
 
               <li className="nav-item">
 
-              <NavLink className="nav-link text-center" to="/profile">
+              <NavLink 
+              className="nav-link text-center"  to="/profile"
+            
+              aria-label="Toggle navigation"
+             >
                   Perfil
                 </NavLink>
                 <hr/>

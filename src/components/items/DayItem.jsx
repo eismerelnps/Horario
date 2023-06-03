@@ -9,9 +9,9 @@ export const DayItem = () => {
   console.log(hours[0]);
 
   return (
-    <div className="animate__animated animate__bounceInLeft">
-      <table className="table table-striped">
-        <thead>
+    <div className="table-responsive-sm animate__animated animate__bounceInLeft ">
+      <table className="table table-striped-columns table-hover table align-middle">
+        <thead className="table-primary">
           <tr>
             <th scope="col">.</th>
             {hour.map(({ day }) => (
@@ -20,7 +20,7 @@ export const DayItem = () => {
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className="table-group-divider">
           {hour.map(({ timeslots }, i) => (
             <tr>
               <th scope="row">{i + 1}</th>
