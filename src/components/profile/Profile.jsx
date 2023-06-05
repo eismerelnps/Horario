@@ -1,14 +1,16 @@
+import { useContext } from "react";
 import { schoolTree } from "../../data/schoolTree/schoolTree";
-import { hourContext } from "../../hooks/useContext";
 import { useForm } from "../../hooks/useForm";
+import { hourContext } from "../hourContext";
 
 export const Profile = () => {
   const faculties = schoolTree;
 
-  const { setHourContext } = useForm(hourContext);
+  const { settings, setSettings } = useContext(hourContext);
 
+  //const { faculty, degree, group } = settings;
 
-  //console.log(faculties);
+  //console.log(settings);
 
   //const { degree } = faculties[5];
   //console.log(degree)
@@ -17,31 +19,33 @@ export const Profile = () => {
   //console.log(group)
 
   const [formValues, handleInputChange] = useForm({
-    faculty: 0,
-    degree: 0,
-    group: 0,
+    ...settings,
   });
-
   const { faculty, degree, group } = formValues;
 
-  const handleSetContext = () => {
-    setHourContext({
-      faculty: faculty,
-      degree: degree,
-      group: group
-    })
-  }
-
+  // const handleSetContext = () => {
+  //   setHourContext({
+  //     faculty: faculty,
+  //     degree: degree,
+  //     group: group
+  //   })
+  // }
 
   const handdleSubmit = (e) => {
     e.preventDefault();
+
+    setSettings({
+      faculty: faculty,
+      degree: degree,
+      group: group,
+    });
 
     console.log("name");
     console.log(e.target.name);
     console.log("value");
     console.log(e.target.value);
 
-    console.log('formValues');
+    console.log("formValues");
     console.log(formValues);
   };
 
@@ -53,7 +57,7 @@ export const Profile = () => {
           className="form-select form-select-lg text-center disabled"
           aria-label="Default select example"
           name="faculty"
-          onChange={ (handleInputChange, handdleSubmit) }
+          onChange={(handleInputChange, handdleSubmit)}
         >
           {faculties.map(({ name }, i) => (
             <option key={name} value={i}>
