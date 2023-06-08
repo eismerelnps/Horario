@@ -18,7 +18,7 @@ export const LoginScreen = () => {
         <input
           type="text"
           className="form-control"
-          id="username"
+          id="usernameInput"
           aria-describedby="emailHelp"
         ></input>
       </div>
@@ -40,7 +40,7 @@ export const LoginScreen = () => {
           Mantenerme registrado
         </label>
       </div>
-      <button type="submit" class="btn btn-primary" onClick={handleLogin}>
+      <button type="submit" class="btn btn-primary" id="login-btn" onClick={handleLogin}>
         Entrar
       </button>
     </form>

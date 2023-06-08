@@ -15,17 +15,17 @@ export const DayItem = () => {
           <tr>
             <th scope="col">.</th>
             {hour.map(({ day }) => (
-              <th scope="col">{day}</th>
+              <th key={day} scope="col">{day}</th>
             ))}
           </tr>
         </thead>
 
         <tbody className="table-group-divider">
-          {hour.map(({ timeslots }, i) => (
-            <tr>
+          {hour.map(({ day, timeslots }, i) => (
+            <tr key={i+56}>
               <th scope="row">{i + 1}</th>
               {hour.map((timeslots) => (
-                <td>{timeslots.timeslots[i].classAbr}</td>
+                <td key={timeslots.timeslots[i].time}>{timeslots.timeslots[i].classAbr}</td>
               ))}
             </tr>
           ))}

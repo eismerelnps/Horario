@@ -1,98 +1,88 @@
-import { useContext } from "react";
+//import { useContext, useEffect } from "react";
 import { schoolTree } from "../../data/schoolTree/schoolTree";
+//import { updateSettings } from "../../helpers/updateSettings";
 import { useForm } from "../../hooks/useForm";
-import { hourContext } from "../hourContext";
+//import { hourContext } from "../hourContext";
+import { Modal } from "../modal/Modal";
 
 export const Profile = () => {
-  const faculties = schoolTree;
+  const init = () => {
+    return JSON.parse(localStorage.getItem("settings"));
+  };
 
-  const { settings, setSettings } = useContext(hourContext);
+  //const {settings, setSettings} = useContext(hourContext)
 
-  //const { faculty, degree, group } = settings;
-
-  //console.log(settings);
-
-  //const { degree } = faculties[5];
-  //console.log(degree)
-
-  //const { group } = degree[1];
-  //console.log(group)
-
-  const [formValues, handleInputChange] = useForm({
-    ...settings,
+  const [formValues, handdleInputChange] = useForm({
+    ...init(),
   });
+
   const { faculty, degree, group } = formValues;
 
-  // const handleSetContext = () => {
-  //   setHourContext({
-  //     faculty: faculty,
-  //     degree: degree,
-  //     group: group
-  //   })
-  // }
+  // useEffect(() => {
+  //   localStorage.setItem("settings", JSON.stringify(formValues));
+  // }, [formValues]);
 
-  const handdleSubmit = (e) => {
-    e.preventDefault();
+  //const { faculty, degree, group } = formValues;
 
-    setSettings({
-      faculty: faculty,
-      degree: degree,
-      group: group,
-    });
 
-    console.log("name");
-    console.log(e.target.name);
-    console.log("value");
-    console.log(e.target.value);
-
-    console.log("formValues");
-    console.log(formValues);
+  const handleSubmit = () => {
+    localStorage.setItem("settings", JSON.stringify(formValues));
+    console.log('Datos actualizados')
+    console.log(init());
   };
 
   return (
     <div className="container-sm w-xl-50 mt-3">
+      <Modal 
+      title={'Ajustes'} 
+      caption={'¿Está seguro que desea cambiar las configuraciones del horario?'}
+      saveChanges={handleSubmit}
+      />
       <div className=" text-primary">
         <span>Seleccione su facultad</span>
+
         <select
           className="form-select form-select-lg text-center disabled"
           aria-label="Default select example"
           name="faculty"
-          onChange={(handleInputChange, handdleSubmit)}
+          value={faculty}
+          onChange={handdleInputChange}
         >
-          {faculties.map(({ name }, i) => (
+          {schoolTree.map(({ name }, i) => (
             <option key={name} value={i}>
               {name}
             </option>
           ))}
         </select>
 
-        <div className="row mt-4 ">
-          <div className="col ">
-            <span>Año</span>
+        <div className="row">
+          <div className="col">
+            <span>Seleccione su año</span>
             <select
-              className="form-select form-select-sm text-center"
+              className="form-select form-select-lg text-center disabled"
               aria-label="Default select example"
+              value={degree}
               name="degree"
-              onChange={(handleInputChange, handdleSubmit)}
+              onChange={handdleInputChange}
             >
-              {faculties[faculty].degree.map(({ name }, i) => (
-                <option key={name} value={i} name="degree">
+              {schoolTree[formValues.faculty].degree.map(({ name }, i) => (
+                <option key={name} value={i}>
                   {name}
                 </option>
               ))}
             </select>
           </div>
-
           <div className="col">
-            <span>Grupo</span>
+            <span>Seleccione su grupo</span>
             <select
-              className="form-select form-select-sm text-center"
+              className="form-select form-select-lg text-center disabled"
               aria-label="Default select example"
+              value={group}
               name="group"
-              onChange={(handleInputChange, handdleSubmit)}
+              onChange={handdleInputChange}
             >
-              {faculties[faculty].degree[degree].group.map(({ name }, i) => (
-                <option key={name} value={i} name="group">
+              {schoolTree[faculty].degree[degree].group.map(({ name }, i) => (
+                <option key={name} value={i}>
                   {name}
                 </option>
               ))}
@@ -100,15 +90,16 @@ export const Profile = () => {
           </div>
         </div>
       </div>
-      <form>
-        <input type="text" className="form-control mt-5" />
-      </form>
-      <button
-        className="btn btn-sm btn-outline-primary mt-3 mx-3"
-        onClick={handdleSubmit}
-      >
-        TEST
-      </button>
+      <div className="d-grid gap-2 mt-3">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          Actualizar
+        </button>
+      </div>
     </div>
   );
 };

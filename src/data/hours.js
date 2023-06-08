@@ -4,6 +4,7 @@ const hours = [
     day: "Lunes",
     timeslots: [
       {
+        id: "123431424",
         time: "1",
 
         classAbr: "PID",
@@ -14,6 +15,7 @@ const hours = [
         teacher: "",
       },
       {
+        id: "123431423",
         time: "2",
 
         classAbr: "FAGO",
@@ -24,6 +26,7 @@ const hours = [
         teacher: "",
       },
       {
+        id: "1234134424",
         time: "3",
 
         classAbr: "M II",
@@ -34,6 +37,7 @@ const hours = [
         teacher: "",
       },
       {
+        id: "123431420",
         time: "4",
 
         classAbr: "",
@@ -44,6 +48,7 @@ const hours = [
         teacher: "",
       },
       {
+        id: "1234312324",
         time: "5",
 
         classAbr: "",
@@ -54,6 +59,7 @@ const hours = [
         teacher: "",
       },
       {
+        id: "123423424",
         time: "6",
 
         classAbr: "",
