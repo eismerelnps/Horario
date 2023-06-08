@@ -32,12 +32,14 @@ export const Profile = () => {
   };
 
   return (
-    <div className="container-sm w-xl-50 mt-3">
-      <Modal 
+    <>
+    <Modal 
       title={'Ajustes'} 
       caption={'¿Está seguro que desea cambiar las configuraciones del horario?'}
       saveChanges={handleSubmit}
       />
+    <div className="container-sm w-xl-50 mt-3">
+      
       <div className=" text-primary">
         <span>Seleccione su facultad</span>
 
@@ -101,5 +103,6 @@ export const Profile = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };

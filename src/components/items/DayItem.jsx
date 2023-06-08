@@ -4,6 +4,14 @@ import "../body/body.css";
 import hours from "../../data/hours";
 
 export const DayItem = () => {
+
+  const init = () => {
+    return JSON.parse(localStorage.getItem("settings"));
+  };
+
+
+
+
   const hour = hours;
   //const { timeslots } = hour;
   console.log(hours[0]);
