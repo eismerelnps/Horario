@@ -7,7 +7,7 @@ const hours = [
         id: "123431424",
         time: "1",
 
-        classAbr: "PID",
+        classAbr: "pid",
         classRoom: "A-305",
         classType: "T",
 

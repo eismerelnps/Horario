@@ -15,12 +15,10 @@ export const SchoolHoursApp = () => {
 
   useEffect(() => {
     const init = () => {
-      console.log("init");
       return JSON.parse(localStorage.getItem("settings"));
     };
 
     const savedSettings = init();
-    console.log(savedSettings);
 
 !savedSettings && localStorage.setItem("settings", JSON.stringify(settings));
 
