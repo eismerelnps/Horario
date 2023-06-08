@@ -5,7 +5,7 @@ export const Modal = ({ title, caption, saveChanges }) => {
     <div
       className="modal fade"
       id="exampleModal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
@@ -31,11 +31,11 @@ export const Modal = ({ title, caption, saveChanges }) => {
             >
               Cancelar
             </button>
-            <button 
-            type="button" 
-            className="btn btn-primary"
-            onClick={saveChanges}
-            data-bs-dismiss="modal"
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={saveChanges}
+              data-bs-dismiss="modal"
             >
               Ok
             </button>
